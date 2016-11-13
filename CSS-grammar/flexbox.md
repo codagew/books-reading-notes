@@ -1,7 +1,7 @@
 # Flex 布局
 
 [REFERENCE]
-1. http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html
+1. http://www.ruanyifeng.com/blog/2015/07/flex-grammar.htmlhttp://www.ruanyifeng.com/blog/2015/07/flex-examples.html
 2. https://css-tricks.com/snippets/css/a-guide-to-flexbox/
 3. https://scotch.io/tutorials/a-visual-guide-to-css3-flexbox-properties
 
@@ -34,4 +34,11 @@
         * align-items: flex-start | flex-end | center | baseline | stretch; (定义项目在交叉轴上如何对齐)
         * align-content: flex-start | flex-end | center | space-between | space-around | stretch; (定义了多根轴线的对齐方式，如果项目只有一根轴线，该属性不起作用)
     3. 项目属性
+        * order:定义项目的排列顺序。数字越小，排列越靠前，默认为0(可以为负值)
+        * flex-grow:定义项目的放大比例，默认为0.即如果存在剩余空间，也不放大
+        * flex-shrink:定义项目的缩小比例，默认为1.即如果空间不足，该项目将缩小
+        * flex-basis: <length> | auto; (定义了在分配多余空间之前，项目占据的主轴空间。浏览器根据这个属性，计算主轴是否有多余空间。默认值为 auto，即项目本来大小)
+        * flex: none | [ <'flex-grow'> <'flex-shrink'> <'flex-basis'>]
+        * align-self: auto | flex-start | flex-end | center | baseline | stretch;(允许项目有与其他项目不一样的对齐方式，可覆盖 align-items 属性)
+    4. 
 5. 
