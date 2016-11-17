@@ -63,4 +63,53 @@
     ```
     * 不允许重复声明
 2. 块级作用域
-3. http://es6.ruanyifeng.com/#docs/let
+    * 之前可以使用 IIFE 获得块级作用域效果
+    ```
+    (function() {
+        var tmp = '';
+        }());
+    ```
+    * ES5 规定，函数只能在顶层作用域和函数作用域中声明，不能在块级作用域声明
+    * 浏览器的实现支持在块级作用域之中声明函数，严格模式不允许
+    * ES6 规定，块级作用域中，函数声明语句类似于 let，在块级作用域外不可引用
+3. const
+    * const 声明常量。一旦声明，不能改变
+    * 类似于 let 定义的变量:只在声明所在的块级作用域有效，不提升，不可重复声明
+    * 对于复合类型的变量，const 命令只是保证变量名指向的地址不变，并不保证该地址的数据不变(`可以改变属性的值，不能整体赋值`)
+    * 冻结对象:Object.freeze()
+    ```
+    const foo = Object.freeze({});
+
+    foo.prop = 123;
+
+    // 彻底冻结对象(对象本身和对象属性)
+    var constantize = obj => {
+        Object.freeze(obj);
+        Object.keys(obj).forEach( (key, value) => {
+            if (typeof obj[key] === 'object') {
+                constantize( obj[key] );
+            }
+        });
+    };
+    ```
+    * ES5 中只有两种声明变量的方法:var, function
+    * ES6 中有6种声明变量的方法:var, function, let, const, import, class
+4. 顶层对象的属性
+    * 顶层对象在浏览器指 window 对象，在 Node 指 global。ES5 中，顶层对象的属性与全局变量等价
+        - 没法在编译时就报出变量未声明的错误，只有运行时才知道(因为全局变量可能是顶层对象的属性创造的，而属性的创造是动态的)
+        - 会不知不觉中创建全局变量
+        - 顶层对象的属性随时可以读写，非常不利于模块化编程
+    * ES6 中，var 命令和 function 命令声明的全局变量，依旧是顶层对象的属性；let、const、class 声明的全局变量，不属于顶层对象的属性
+5. 顶层对象
+    * 浏览器中，顶层对象是 window，Node 和 Web Worker 没有 window
+    * 浏览器和 Web Worker 中， self 也指向顶层对象，Node 中没有 self
+    * Node 中，顶层对象是 global，其他环境不支持
+6. this
+    * 全局环境中，this 会返回顶层对象。但是，Node 模块和 ES6模块中， this 返回的是当前模块
+    * 函数里面的this，如果函数不是作为对象的方法运行，而是单纯作为函数运行，会指向顶层对象。严格模式下，this会返回undefined
+    * new Function('return this')();会返回全局对象。如果浏览器用了CSP(Content Security Policy, 内容安全策略)，那么eval, new Function 这些方法都可能无法使用
+
+## 变量的解构赋值
+1. 数组的解构赋值
+    * 
+2. 
