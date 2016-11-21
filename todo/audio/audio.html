@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>audio demo</title>
+</head>
+
+<body>
+	<audio src="梁汉文 - 七友.mp3" controls=""></audio>
+
+	<div class="operators">
+		<button class="btn-play">播放</button>
+		<button class="btn-pause">暂停</button>
+		<button class="btn-stop">停止</button>
+		<button class="btn-next">下一首</button>
+		<button class="btn-previous">上一首</button>
+	</div>
+
+	<script>
+		(function() {
+			var $ = document.querySelector;
+			var $btnPlay = document.querySelector('.btn-play');
+			var $btnPause = document.querySelector('.btn-pause');
+			var $btnStop = document.querySelector('.btn-stop');
+			var $btnNext = document.querySelector('.btn-next');
+			var $btnPrevious = document.querySelector('.btn-previous');
+
+			var $audio = document.querySelector('audio');
+
+			$btnPlay.addEventListener('click', function(event) {
+				console.log(event);
+
+				$audio.play();
+			});
+
+			$btnPause.addEventListener('click', function(event) {
+				$audio.pause();
+			});
+
+			$btnStop.addEventListener('click', function(event) {
+				$audio.stop();
+			});
+
+			$btnNext.addEventListener('click', function(event) {
+				$audio.setAttribute('src', '王菲 - 暧昧.mp3');
+				$audio.play();
+			});
+
+			$btnPrevious.addEventListener('click', function(event) {
+				$audio.setAttribute('src', '陈奕迅 - 失忆蝴蝶.mp3');
+				$audio.play();
+			});
+
+		})();
+	</script>
+</body>
+</html>
