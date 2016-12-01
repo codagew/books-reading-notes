@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Triangle Demo</title>
+	<style>
+		.triangle-up {
+			width: 0;
+			height: 0;
+			border-left: 5px solid transparent;
+			border-right: 5px solid transparent;
+			border-bottom: 10px solid #CCC;
+		}
+
+		.triangle-left {
+			width: 0; 
+			height: 0;
+			border-top: 5px solid transparent;
+			border-bottom: 5px solid transparent;
+			border-right: 10px solid #CCC;
+		}
+
+		.triangle-left2 {
+			width: 4px;
+			height: 4px;
+			border-left: 1px solid #CCC;
+			border-bottom: 1px solid #CCC;
+			transform: rotate(45deg);
+		}
+	</style>
+</head>
+
+<body>
+	<div class="triangle triangle-up"></div>
+
+	<div class="triangle triangle-left"></div>
+
+	<div class="triangle triangle-left2"></div>
+</body>
+</html>
