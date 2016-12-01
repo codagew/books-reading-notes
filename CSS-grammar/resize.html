@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+    <head>
+        <title>CSS Resize</title>
+        <style>
+            .container {
+                width: 400px;
+                height: 300px;
+                border: 1px solid gray;
+                /*resize: both;
+                overflow: auto;*/
+            }
+
+            .resize-demo {
+                cursor: e-resize;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <div class="container resize-demo"></div>
+
+        <div class="container">
+            <iframe src="http://www.baidu.com" frameborder="0"></iframe>
+        </div>
+
+        <script>
+            (function() {
+                'use strict';
+
+                let $resize = document.querySelector('.resize-demo');
+                $resize.addEventListener('mouseover', function(evt) {
+                    console.log('mouseover:', evt);
+                });
+
+                $resize.addEventListener('mousemove', function(evt) {
+                    console.log('mousemove:', evt);
+                });
+            })();
+        </script>
+    </body>
+</html>
